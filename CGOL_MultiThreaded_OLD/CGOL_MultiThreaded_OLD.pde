@@ -1,5 +1,4 @@
 // Created 03/06/21
-// Last updated 03/07/21
 
 
 
@@ -10,7 +9,7 @@
 final int GridWidth = 512;
 final int GridHeight = 512;
 
-final int NumOfThreads = 5; // Gives down to ~ 1.6-1.5 ms (average) (~ 5.5-5.7 ms on 1024x1024)
+final int NumOfThreads = 6; // (6) Gives down to ~ 2.6-2.7 ms (average)
 
 final float StartRandomPlaceThreshold = 0.5;
 
@@ -47,8 +46,6 @@ void setup() {
   
   size (512, 512);
   frameRate (60);
-  
-  LaunchThreads();
   
 }
 
@@ -88,10 +85,10 @@ void draw() {
   TotalRenderNano += RenderNano;
   
   println();
-  println ("Time taken (micro-s):");
+  println ("Time taken (microseconds):");
   println ("Update: " + UpdateNano / 1000 + "; Average: " + (TotalUpdateNano / frameCount / 1000));
   println ("Render: " + RenderNano / 1000 + "; Average: " + (TotalRenderNano / frameCount / 1000));
-  println ("Total: "  + (UpdateNano + RenderNano) / 1000000 + "; Average: " + ((TotalUpdateNano + TotalRenderNano) / frameCount / 1000));
+  println ("Total: "  + (UpdateNano + RenderNano) / 1000 + "; Average: " + ((TotalUpdateNano + TotalRenderNano) / frameCount / 1000));
   
 }
 
